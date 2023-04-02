@@ -38,5 +38,4 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/chat/{uid?}', [ChatController::class, 'index']) -> name('chat');
     Route::post('/chat', [ChatController::class, 'sendMessage']) -> name('chat.save');
-
 });

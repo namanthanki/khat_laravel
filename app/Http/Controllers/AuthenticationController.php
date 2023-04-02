@@ -51,10 +51,6 @@ class AuthenticationController extends Controller {
             'profilePicture' => 'required',
         ]);
 
-        // // print_r($request -> all());
-        // print_r($request -> file());
-        // exit;
-
         $userProfileImage = $request -> file('profilePicture');
         $imageName = time() . Auth::id() . "-profile." . $userProfileImage->getClientOriginalExtension();
         $uploadPath = 'images/';

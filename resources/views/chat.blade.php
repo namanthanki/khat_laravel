@@ -31,22 +31,6 @@
             </div>
 
             <div class="chat-body">
-                {{-- @foreach($messages as $message)
-                    @if($message -> outgoing_message_id == auth() -> user() -> uid)
-                    <div class="chat outgoing">
-                        <div class="details">
-                            <p>{{$message -> message}}</p>
-                        </div>
-                    </div>
-                    @else
-                    <div class="chat incoming">
-                        <img src="{{ asset($user->profile_picture) }}"  />
-                        <div class="details">
-                            <p>{{$message -> message}}</p>
-                        </div>
-                    </div>
-                    @endif
-                @endforeach --}}
             </div>
 
             <form class="chat-footer">

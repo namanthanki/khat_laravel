@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Messages;
 use App\Models\User;
-use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
@@ -51,9 +50,6 @@ class ChatController extends Controller
         return Response($output);
         }
         return view('chat', ['user' => $user]) -> render();
-
-
-        // return response()->json(['messages' => $messages]);
     }
 
     static function sendMessage(Request $request)
@@ -63,30 +59,5 @@ class ChatController extends Controller
         $message->outgoing_message_id = $request -> outgoingId;
         $message->message = $request -> sendMessage;
         $message->save();
-
-        // $user = User::where('uid', $request -> outgoingId)->first();
-
-        // $incomingId = $request -> incomingId;
-        // $outgoingId = $request -> outgoingId;
-
-        // $messages = Messages::select('messages.*', 'users.*')
-        //     ->leftJoin('users', 'users.uid', '=', 'messages.outgoing_message_id')
-        //     ->where(function ($query) use ($incomingId, $outgoingId) {
-        //         $query->where('incoming_message_id', $incomingId)
-        //             ->where('outgoing_message_id', $outgoingId);
-        //     })
-        //     ->orWhere(function ($query) use ($incomingId, $outgoingId) {
-        //         $query->where('outgoing_message_id', $incomingId)
-        //             ->where('incoming_message_id', $outgoingId);
-        //     })
-        //     ->orderBy('messages.id')
-        //     ->get();
-
-        // return view('chat', ['user' => $user, 'messages' => $messages]) -> render();
-    }
-
-    static function deleteMessages(Request $request)
-    {
-
     }
 }
